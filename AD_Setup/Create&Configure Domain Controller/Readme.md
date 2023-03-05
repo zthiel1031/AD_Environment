@@ -36,5 +36,25 @@ We are finally ready to launch our machine however it does not have an Operating
 
 Once the machine loads, proceed with a normal windows installation. During the setup it will as you to select an operating system. Make sure that you use either of the `Desktop Experiences` doing so will give you a GUI to work wiith vs just a CMD line iinterface. 
 
-After clickiing next and waiting for the install to complete, it will take several minutes where the server will restart and ask you to push any key to boot, please sit tight until it prompts you to create the admin user with a password. After that is done you should be able to log in to the machine with the credentials you set.
+After clicking next and waiting for the install to complete, it will take several minutes where the server will restart and ask you to push any key to boot, please sit tight until it prompts you to create the admin user with a password. After that is done you should be able to log in to the machine with the credentials you set.
+
+---
+
+Next we need to set up our IP address to do so we click on the network symbol in the app tray and then click on our network connection.
+
+![](Images/2023-03-05-17-10-55.png)
+
+Click on `Change adapter option`
+
+![](Images/2023-03-05-17-12-08.png)
+
+Doing so will open a window with our two adapters. Right click on one and select `Status`. On the status page click `Details` and look at the IPv4 Address. In this case the adapter I selected has the DHCP server address for my ISP so I know this is the Internet facing adapter. 
+
+![](Images/2023-03-05-17-16-21.png)
+
+Right click on the adapter and name it something so you can differentiate between the two adapters.
+
+To set the Ip address, right click on the internal adapter and click `properties` then double click on `IPv4` Then click `Use the following IP addresses` and set the parameters to what we have in our architecture diagram. 
+
+![](Images/2023-03-05-17-28-12.png)
 
