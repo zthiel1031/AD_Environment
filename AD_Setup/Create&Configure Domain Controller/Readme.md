@@ -34,7 +34,7 @@ We are finally ready to launch our machine however it does not have an Operating
 
 ![](Images/2023-03-05-16-41-27.png)
 
-Once the machine loads, proceed with a normal windows installation. During the setup it will as you to select an operating system. Make sure that you use either of the `Desktop Experiences` doing so will give you a GUI to work wiith vs just a CMD line iinterface. 
+Once the machine loads, proceed with a normal windows installation. During the setup it will as you to select an operating system. Make sure that you use either of the `Desktop Experiences` doing so will give you a GUI to work wiith vs just a CMD line interface. 
 
 After clicking next and waiting for the install to complete, it will take several minutes where the server will restart and ask you to push any key to boot, please sit tight until it prompts you to create the admin user with a password. After that is done you should be able to log in to the machine with the credentials you set.
 
