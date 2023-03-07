@@ -45,3 +45,62 @@ This will create the account, however it will not add it to the OU by default. W
 ![](Images/2023-03-05-21-52-23.png)
 
 You can then sign out, and upon doing CTRL+ALT+DEL you can select other user in the bottom left of the screen. For the username you'll use whatever you set it to. For me it was a-zthiel, and log in with the password for the account.
+
+The next thing we will install is our RAS (Remote Access Server)/NAT (Network Address Translation) which will allow our windows 10 client to be on the virtual private network but still be able to access the internet through the domain controller.
+
+To do this, in the server manager dashboard we will go to `Add roles and features` much like the earlier install we can click `Next` until we get to the Server Roles tab where we will select `Remote Access`.
+
+![](Images/2023-03-06-20-23-36.png)
+
+Then click `Next` until you get to the `Role Services` tab and check the box to enable `Routing`, click `Add features` once the window loads, then click `Next` until you are able to click `Install`
+
+![](Images/2023-03-06-20-25-19.png)
+
+
+After the install finishes you can close the window and go to `Tools` and `Routing and Remote Access`
+
+![](Images/2023-03-06-20-34-11.png)
+
+On the Routing and Remote Access window, right-click on DC and select `Configure and Enable Routing and Remote Access`
+
+![](Images/2023-03-06-20-35-55.png)
+
+In the wizard, hit Next and make sure to select `Network address translation` 
+
+![](Images/2023-03-06-20-38-04.png)
+
+There is an issue where on the next page this option is grayed out and nothing shows in the network interfaces. If that is the case just reopen the Routing and Remote Access window through the tools menu. If it does have network interfaces listed select the public interface which you named to differentiate between the two. then click `Next` and `Finish`
+
+![](Images/2023-03-06-20-41-46.png)
+
+We will now set up our DHCP server within our domain controller. This will allow our Win10 client to get an IP address to access the internet a browse even though they are on the private internal network.
+
+To do this, in the server manager dashboard we will go to `Add roles and features` much like the earlier install we can click `Next` until we get to the Server Roles tab where we will select `DHCP Server` then click `Add Features`. Then click `Next` until you have the option to `Install`
+
+![](Images/2023-03-06-20-53-56.png)
+
+After the install finishes you can close the window and go to `Tools` and `DHCP`
+
+![](Images/2023-03-06-20-56-33.png)
+
+The whole purpose of DHCP is to allow computers on the newtork to automatically get IP addresses. Looking at our scope we can see the range of 172.16.0.100-200.
+
+On the DHCP screen we can pull down the `dc.mydomain.com` and right-click on `IPv4` and select `New Scope`
+
+![](Images/2023-03-06-21-00-21.png)
+
+In the wizard you can select `Next` and give it whatever name you would like. I will name mine the same as the range in our diagram for ease of use. For the IP address range, we will set our starting IP to `172.16.0.100` and ending IP to `172.16.0.200` with the `Length` being set to `24`
+
+![](Images/2023-03-06-21-04-47.png)
+
+We do not need any exclusions so we can hit `Next`. For lease duration we can leave it at the default 8 days. Longer lease durations would be suitable for desktops that will remain on the network while shorter lease durations would be good for something like an iinternet cafe where users are constantly coming and going. We can click `Next` unitl you come to the default gateway screen. 
+
+Make sure to input our internal NIC IP and click add. You can then click `Next` all the way to the end and click `Finish`
+
+![](Images/2023-03-06-21-10-24.png)
+
+If, after finishing, your `IPv4` icon still has the red arrow you may have to right-click on `dc.mydomain.com` and select authroize. Then right-click on `dc.mydomain.com` and click `Refresh. The icons should change to green check marks.
+
+![](Images/2023-03-06-21-15-21.png)
+
+Now we can use Powershell to create example users so we do not have to manually create them.
