@@ -104,3 +104,5 @@ If, after finishing, your `IPv4` icon still has the red arrow you may have to ri
 ![](Images/2023-03-06-21-15-21.png)
 
 Now we can use Powershell to create example users so we do not have to manually create them.
+
+[Continue to next step](https://github.com/zthiel1031/AD_Environment/tree/main/AD_Setup/Powershell%20User%20Creation)

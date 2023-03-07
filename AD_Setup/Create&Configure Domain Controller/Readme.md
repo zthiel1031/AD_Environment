@@ -58,3 +58,4 @@ To set the Ip address, right click on the internal adapter and click `properties
 
 ![](Images/2023-03-05-17-28-12.png)
 
+[Continue to next step](https://github.com/zthiel1031/AD_Environment/tree/main/AD_Setup/Install%20Active%20Directory)
