@@ -36,3 +36,26 @@ When select an operating system. Make sure that you use anything other than WInd
 
 ![](Images/2023-03-06-22-34-25.png)
 
+Finally we need to attach our Client to the domain. To do so we will use the advanced renamee feature through our system's about page. To access this right-click on the `Start` icon and select `System`
+
+![](Images/2023-03-07-20-02-04.png)
+
+Scroll down to the bottom of the window and select `Rename this PC (Advanced)`
+
+![](Images/2023-03-07-20-03-18.png)
+
+The system properties window will appear and you will click on the box that says `Change` to add the computer to the domain and change it's name.
+
+Make sure you select the bubble that says `Domain` and add it to `mydomain.com` and rename the computer.
+
+![](Images/2023-03-07-20-06-50.png)
+
+You will then be required to enter a username and password to allow the computer to join the domain. For us we will use the admin account we created.
+
+![](Images/2023-03-07-20-07-40.png)
+
+After clicking `Ok` it will take a minute and you will see a welcome to the domain screen and it will ask you to restart the system.
+
+Upon restarting the computer will attempt to log in a the local user. Select `Other User` iin the bottom left of the screen and you will see that it now says we are signing in to the domain of `MYDOMAIN`. Pick any random user that was created and sign in as them to verify the accounts were created successfully.
+
+![](Images/2023-03-07-20-13-13.png)
